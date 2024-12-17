@@ -39,4 +39,9 @@ public class DemoServiceImpl implements DemoService {
         }
         return sb.toString();
     }
+
+    @Override
+    public int divideAnswer(int a1, int a2) {
+        return a1 / a2;
+    }
 }

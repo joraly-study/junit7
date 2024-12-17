@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 import ru.joraly.service.impl.DemoServiceImpl;
+import org.junit.jupiter.params.*;
+import org.junit.jupiter.params.provider.*;
 
 import java.util.concurrent.TimeUnit;
 
@@ -57,4 +59,12 @@ class DemoServiceTest {
         assertEquals("TDD", demoService.generateAcronym("test driven development"));
         assertEquals("", demoService.generateAcronym(""));
     }
+
+    @ParameterizedTest
+    @ValueSource(ints = {0, 1})
+    @DisplayName("Проверка деления на ноль")
+    void divideAnswer(int a2) {
+        assertThrows(ArithmeticException.class, () -> demoService.divideAnswer(1, a2));
+    }
 }
+
